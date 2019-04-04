@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t cvt11/docker-prod-demo -f Dockerfile.dev .
+
+script:
+  - docker run cvt11/docker-prod-demo npm run test -- --coverage
